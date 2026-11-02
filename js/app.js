@@ -558,6 +558,43 @@
         render();
       });
     }
+    const chapterFilter = $("#chapter-filter");
+    if (chapterFilter) {
+      chapterFilter.addEventListener("change", () => {
+        state.filterChapter = chapterFilter.value;
+        render();
+      });
+    }
+    const typeFilter = $("#type-filter");
+    if (typeFilter) {
+      typeFilter.addEventListener("change", () => {
+        state.filterType = typeFilter.value;
+        render();
+      });
+    }
+    const diffFilter = $("#diff-filter");
+    if (diffFilter) {
+      diffFilter.addEventListener("change", () => {
+        state.filterDifficulty = diffFilter.value;
+        render();
+      });
+    }
+    const provFilter = $("#prov-filter");
+    if (provFilter) {
+      provFilter.addEventListener("change", () => {
+        state.filterProvenance = provFilter.value;
+        render();
+      });
+    }
+    $all("[data-chapter]").forEach((el) => el.addEventListener("click", () => {
+      state.filterChapter = el.getAttribute("data-chapter");
+      state.filterTag = "";
+      state.filterType = "";
+      state.filterDifficulty = "";
+      state.filterProvenance = "";
+      state.search = "";
+      navigate("bank");
+    }));
 
     const reveal = $("#reveal-answer");
     if (reveal) reveal.addEventListener("click", () => {
