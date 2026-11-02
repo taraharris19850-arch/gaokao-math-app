@@ -14,7 +14,8 @@
     practiceChoice: null,
     ankiQueue: [],
     ankiCurrent: null,
-    ankiFlipped: false
+    ankiFlipped: false,
+    tabEnteredAt: Date.now()
   };
 
   const TAGS = Array.from(new Set(qs.flatMap((q) => q.tags))).sort();
@@ -52,11 +53,33 @@
     }
   }
 
+
+  function markTabEnter() {
+    state.tabEnteredAt = Date.now();
+  }
+
+  function trackTabTime(nextTab) {
+    if (state.view === "problem" && state.problemId && window.GaokaoTelemetry) {
+      const ms = Math.max(0, Date.now() - (state.tabEnteredAt || Date.now()));
+      if (ms >= 300) {
+        GaokaoTelemetry.track("time_on_step", {
+          problemId: state.problemId,
+          tab: state.tab,
+          ms: ms,
+          nextTab: nextTab || null
+        });
+      }
+    }
+    markTabEnter();
+  }
+
   function navigate(view, opts) {
+    if (state.view === "problem" && view !== "problem") trackTabTime(null);
     state.view = view;
     if (window.GaokaoTelemetry) GaokaoTelemetry.track("navigate", { view: view, problemId: (opts && opts.problemId) || state.problemId || null });
     if (opts && opts.problemId) state.problemId = opts.problemId;
     if (opts && opts.tab) state.tab = opts.tab;
+    markTabEnter();
     GaokaoSpeech.stop();
     const host = $("#anim-host");
     if (host) GaokaoAnim.stop(host);
@@ -395,6 +418,7 @@
     HistoryStore.add({ problemId: id, result: "viewed" });
     const prob = qs.find((q) => q.id === id);
     if (window.GaokaoTelemetry) GaokaoTelemetry.track("problem_open", { problemId: id, tags: (prob && prob.tags) || [], title: prob && prob.title });
+    markTabEnter();
     render();
   }
 
@@ -426,7 +450,9 @@
     }));
     $all("[data-open]").forEach((el) => el.addEventListener("click", () => openProblem(el.getAttribute("data-open"))));
     $all("[data-tab]").forEach((el) => el.addEventListener("click", () => {
-      state.tab = el.getAttribute("data-tab");
+      const next = el.getAttribute("data-tab");
+      trackTabTime(next);
+      state.tab = next;
       state.practiceChoice = null;
       render();
     }));
@@ -509,7 +535,7 @@
     if (submit) submit.addEventListener("click", () => {
       const p = qs.find((q) => q.id === state.problemId);
       if (!p) return;
-      const ok = String(state.practiceChoice) === String(p.answer) || String(p.answer).indexOf(String(state.practiceChoice)) >= 0;
+      const ok = String(state.practiceChoice).trim() === String(p.answer).trim();
       finishPractice(p, ok ? "correct" : "wrong");
     });
     $all("[data-grade]").forEach((el) => el.addEventListener("click", () => {
@@ -548,6 +574,37 @@
       state.ankiFlipped = false;
       render();
     }));
+
+    const sendFb = $("#btn-send-fb");
+    if (sendFb) sendFb.addEventListener("click", () => {
+      const npsEl = $("#nps-input");
+      const textEl = $("#fb-text");
+      const npsRaw = npsEl ? npsEl.value : "";
+      const note = textEl ? String(textEl.value || "").trim().slice(0, 500) : "";
+      let nps = npsRaw === "" ? null : Number(npsRaw);
+      if (nps != null && (Number.isNaN(nps) || nps < 0 || nps > 10)) {
+        alert("请填写 0–10 的推荐分，或留空只提交文字。");
+        return;
+      }
+      if (nps == null && !note) {
+        alert("请填写推荐分或文字反馈。");
+        return;
+      }
+      if (window.GaokaoTelemetry) {
+        GaokaoTelemetry.track("feedback", { nps: nps, note: note, source: "about" });
+      }
+      const ok = $("#fb-ok");
+      if (ok) ok.hidden = false;
+      if (npsEl) npsEl.value = "";
+      if (textEl) textEl.value = "";
+      sendFb.textContent = "已提交 ✓";
+      sendFb.disabled = true;
+      setTimeout(() => {
+        sendFb.textContent = "提交反馈";
+        sendFb.disabled = false;
+        if (ok) ok.hidden = true;
+      }, 2500);
+    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
