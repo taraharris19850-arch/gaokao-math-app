@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>使用体验后台 · 高考数学</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .admin-wrap { max-width: 960px; margin: 0 auto; padding: 0.85rem; }
+    .feed { max-height: 420px; overflow: auto; font-size: 0.85rem; }
+    .feed li { border-bottom: 1px solid var(--border); padding: 0.5rem 0; }
+    .grid2 { display: grid; gap: 0.75rem; }
+    @media (min-width: 700px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+    .mono { font-family: ui-monospace, monospace; font-size: 0.8rem; white-space: pre-wrap; }
+    .key-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .key-row input { flex: 1; min-width: 140px; min-height: 44px; border-radius: 12px; border: 1px solid var(--border); padding: 0.5rem 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <header class="card">
+      <h1>使用体验后台</h1>
+      <p class="muted small">实时查看匿名埋点、反馈，并生成自进化提案。客户站不展示本页。</p>
+      <div class="key-row">
+        <label>管理密钥</label>
+        <input id="admin-key" type="password" placeholder="X-Admin-Key / 本地模式可留空" />
+        <input id="api-base" type="text" placeholder="API 根路径，默认当前源" value="" />
+        <button class="btn primary" id="btn-refresh">刷新</button>
+      </div>
+      <p class="small muted" id="mode-hint"></p>
+    </header>
+
+    <section class="grid2">
+      <div class="card">
+        <h2>概览</h2>
+        <div id="stats" class="mono">加载中…</div>
+      </div>
+      <div class="card">
+        <h2>自进化</h2>
+        <button class="btn primary" id="btn-evolve">分析并生成提案</button>
+        <button class="btn" id="btn-export">导出本机事件 JSON</button>
+        <div id="proposal" class="mono" style="margin-top:0.75rem"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="row-between">
+        <h2>事件流</h2>
+        <span class="muted small" id="feed-meta"></span>
+      </div>
+      <ul class="feed hist-list" id="feed"></ul>
+    </section>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/telemetry.js"></script>
+  <script src="js/evolution.js"></script>
+  <script>
+    const keyEl = document.getElementById("admin-key");
+    const baseEl = document.getElementById("api-base");
+    keyEl.value = localStorage.getItem("gaokao_admin_key") || "";
+    baseEl.value = localStorage.getItem("gaokao_api_base") || "";
+
+    function apiBase() {
+      const b = (baseEl.value || "").replace(/\/$/, "");
+      return b || location.origin;
+    }
+    function headers() {
+      const h = { "Content-Type": "application/json" };
+      if (keyEl.value) h["X-Admin-Key"] = keyEl.value;
+      return h;
+    }
+    function saveCreds() {
+      localStorage.setItem("gaokao_admin_key", keyEl.value);
+      localStorage.setItem("gaokao_api_base", baseEl.value);
+    }
+
+    async function fetchEvents() {
+      saveCreds();
+      try {
+        const res = await fetch(apiBase() + "/api/events?limit=200", { headers: headers() });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        document.getElementById("mode-hint").textContent = "模式：远端 API（" + apiBase() + "）";
+        return data.events || [];
+      } catch (e) {
+        document.getElementById("mode-hint").textContent =
+          "模式：本机 localStorage 兜底（API 不可用：" + e.message + "）。部署 server/ 或 Worker 后填写 API 与密钥。";
+        return GaokaoTelemetry.getLocalFeed();
+      }
+    }
+
+    function render(events) {
+      const analysis = GaokaoEvolution.analyze(events);
+      document.getElementById("stats").textContent = JSON.stringify(
+        {
+          事件数: analysis.eventCount,
+          类型分布: analysis.byType,
+          薄弱主题: analysis.weakTopics.slice(0, 5),
+          高错题: analysis.weakProblems.slice(0, 5),
+          平均NPS: analysis.avgNps,
+          TTS播放: analysis.tts.play,
+          动画播放: analysis.anim.play
+        },
+        null,
+        2
+      );
+      const feed = document.getElementById("feed");
+      feed.innerHTML = events
+        .slice(0, 100)
+        .map((ev) => {
+          return (
+            "<li><b>" +
+            ev.type +
+            "</b> <span class='muted'>" +
+            (ev.ts || "") +
+            "</span><div class='mono'>" +
+            JSON.stringify(ev.payload || {}) +
+            "</div></li>"
+          );
+        })
+        .join("");
+      document.getElementById("feed-meta").textContent = "最近 " + Math.min(100, events.length) + " 条";
+      window.__events = events;
+    }
+
+    document.getElementById("btn-refresh").onclick = async () => {
+      render(await fetchEvents());
+    };
+
+    document.getElementById("btn-evolve").onclick = async () => {
+      saveCreds();
+      try {
+        const res = await fetch(apiBase() + "/api/evolve", { method: "POST", headers: headers() });
+        if (res.ok) {
+          const data = await res.json();
+          document.getElementById("proposal").textContent = JSON.stringify(data.proposal, null, 2);
+          return;
+        }
+      } catch (e) {}
+      const events = window.__events || (await fetchEvents());
+      const analysis = GaokaoEvolution.analyze(events);
+      const prop = GaokaoEvolution.propose(analysis, window.GAOKAO_QUESTIONS);
+      document.getElementById("proposal").textContent = JSON.stringify(prop, null, 2);
+      const blob = new Blob([JSON.stringify(prop, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = prop.id + ".json";
+      a.click();
+    };
+
+    document.getElementById("btn-export").onclick = () => {
+      const data = GaokaoTelemetry.exportQueue();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "gaokao-events-export.json";
+      a.click();
+    };
+
+    window.addEventListener("gaokao-telemetry", async () => {
+      render(await fetchEvents());
+    });
+
+    fetchEvents().then(render);
+  </script>
+</body>
+</html>
