@@ -3,7 +3,7 @@
  */
 window.GAOKAO_CONFIG = {
   appName: "高考数学练习",
-  version: "1.2.0",
+  version: "1.3.0",
   // 遥测上报地址：同域 /api/events，或 Cloudflare Worker / 自建服务完整 URL
   telemetryUrl: "/api/events",
   // 若静态托管无法同域 API，可改为例如：

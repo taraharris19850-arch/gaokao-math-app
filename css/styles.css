@@ -335,3 +335,15 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   border-radius: 12px; background: #0f172a; margin: 0.5rem 0;
 }
 .scan-stem { min-height: 96px; width: 100%; padding: 0.65rem; border-radius: 12px; border: 1px solid var(--border); font-size: 1rem; }
+
+.bank-filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+.mini-tag.chapter { background: #e0f2fe; color: #075985; }
+@media (min-width: 600px) {
+  .bank-filters {
+    grid-template-columns: 1.4fr repeat(5, minmax(0, 1fr));
+  }
+}

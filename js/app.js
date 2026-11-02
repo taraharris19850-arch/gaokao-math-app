@@ -8,6 +8,10 @@
   const state = {
     view: "home",
     filterTag: "",
+    filterChapter: "",
+    filterType: "",
+    filterDifficulty: "",
+    filterProvenance: "",
     search: "",
     problemId: null,
     tab: "stem",
@@ -19,6 +23,10 @@
   };
 
   const TAGS = Array.from(new Set(qs.flatMap((q) => q.tags))).sort();
+  const CHAPTERS = Array.from(new Set(qs.map((q) => q.chapter).filter(Boolean))).sort();
+  const TYPES = Array.from(new Set(qs.map((q) => q.type).filter(Boolean))).sort();
+  const DIFFICULTIES = Array.from(new Set(qs.map((q) => q.difficulty).filter((d) => d != null))).sort((a, b) => a - b);
+  const PROVENANCES = Array.from(new Set(qs.map((q) => (q.provenance && q.provenance.kind) || "").filter(Boolean))).sort();
 
   function $(sel, root) {
     return (root || document).querySelector(sel);
@@ -99,9 +107,13 @@
   function filteredQuestions() {
     const s = (state.search || "").trim();
     return qs.filter((q) => {
+      if (state.filterChapter && q.chapter !== state.filterChapter) return false;
+      if (state.filterType && q.type !== state.filterType) return false;
+      if (state.filterDifficulty !== "" && state.filterDifficulty != null && String(q.difficulty) !== String(state.filterDifficulty)) return false;
+      if (state.filterProvenance && (!(q.provenance) || q.provenance.kind !== state.filterProvenance)) return false;
       if (state.filterTag && !(q.tags || []).includes(state.filterTag)) return false;
       if (!s) return true;
-      const blob = [q.title, q.stem, q.type, (q.tags || []).join(" ")].join(" ");
+      const blob = [q.title, q.stem, q.type, q.chapter, (q.tags || []).join(" "), (q.provenance && q.provenance.label) || ""].join(" ");
       return blob.indexOf(s) >= 0;
     });
   }
@@ -114,7 +126,7 @@
     return `
       <section class="hero">
         <h1>高考数学练习</h1>
-        <p class="subtitle">题库 · 扫题 · 连续讲解 · 相似题 · 动画 · 间隔记忆</p>
+        <p class="subtitle">大题库 · 章节筛选 · 扫题 · 连续讲解 · 相似题 · Anki</p>
         <div class="hero-actions">
           <button class="btn primary btn-lg" data-go="bank">进入题库</button>
           <button class="btn btn-lg" data-go="scan">📷 扫题</button>
@@ -122,7 +134,8 @@
         </div>
         <div class="stat-row">
           <div class="stat"><b>${qs.length}</b><span>题目</span></div>
-          <div class="stat"><b>${TAGS.length}</b><span>知识点标签</span></div>
+          <div class="stat"><b>${CHAPTERS.length}</b><span>章节</span></div>
+          <div class="stat"><b>${TAGS.length}</b><span>标签</span></div>
           <div class="stat"><b>${histN}</b><span>练习记录</span></div>
           <div class="stat"><b>${due}</b><span>今日待复习</span></div>
         </div>
@@ -130,7 +143,7 @@
       <section class="card">
         <h2>快速开始</h2>
         <div class="chip-wrap">
-          ${TAGS.slice(0, 8).map((t) => `<button class="chip" data-tag="${t}">${t}</button>`).join("")}
+          ${CHAPTERS.slice(0, 10).map((c) => `<button class="chip" data-chapter="${escapeAttr(c)}">${c}</button>`).join("")}
         </div>
       </section>
       <section class="card muted-card">
@@ -143,19 +156,36 @@
   function renderBank() {
     const list = filteredQuestions();
     return `
-      <section class="toolbar sticky">
-        <input class="search" id="search-input" type="search" placeholder="搜索题目 / 标签" value="${escapeAttr(state.search)}" />
-        <select id="tag-filter" class="select">
-          <option value="">全部类型</option>
-          ${TAGS.map((t) => `<option value="${t}" ${state.filterTag === t ? "selected" : ""}>${t}</option>`).join("")}
+      <section class="toolbar sticky bank-filters">
+        <input class="search" id="search-input" type="search" placeholder="搜索题目 / 标签 / 章节" value="${escapeAttr(state.search)}" />
+        <select id="chapter-filter" class="select" aria-label="章节">
+          <option value="">全部章节</option>
+          ${CHAPTERS.map((c) => `<option value="${escapeAttr(c)}" ${state.filterChapter === c ? "selected" : ""}>${c}</option>`).join("")}
+        </select>
+        <select id="type-filter" class="select" aria-label="题型">
+          <option value="">全部题型</option>
+          ${TYPES.map((t) => `<option value="${escapeAttr(t)}" ${state.filterType === t ? "selected" : ""}>${t}</option>`).join("")}
+        </select>
+        <select id="diff-filter" class="select" aria-label="难度">
+          <option value="">全部难度</option>
+          ${DIFFICULTIES.map((d) => `<option value="${d}" ${String(state.filterDifficulty) === String(d) ? "selected" : ""}>${"★".repeat(d)}${"☆".repeat(5-d)}</option>`).join("")}
+        </select>
+        <select id="prov-filter" class="select" aria-label="来源">
+          <option value="">全部来源</option>
+          ${PROVENANCES.map((p) => `<option value="${escapeAttr(p)}" ${state.filterProvenance === p ? "selected" : ""}>${p}</option>`).join("")}
+        </select>
+        <select id="tag-filter" class="select" aria-label="标签">
+          <option value="">全部标签</option>
+          ${TAGS.map((t) => `<option value="${escapeAttr(t)}" ${state.filterTag === t ? "selected" : ""}>${t}</option>`).join("")}
         </select>
       </section>
-      <p class="result-count">共 ${list.length} 题</p>
+      <p class="result-count">共 ${list.length} 题（库内 ${qs.length}）</p>
       <div class="problem-list">
         ${list.map((q) => `
           <button class="problem-card" data-open="${q.id}">
             <div class="pc-top">
               <span class="tag">${q.type || "题目"}</span>
+              <span class="mini-tag chapter">${escapeHtml(q.chapter || "综合")}</span>
               ${provenanceBadge(q)}
               <span class="diff">${difficultyStars(q.difficulty)}</span>
             </div>
@@ -493,6 +523,7 @@
     }));
     $all("[data-tag]").forEach((el) => el.addEventListener("click", () => {
       state.filterTag = el.getAttribute("data-tag");
+      state.filterChapter = "";
       state.search = "";
       navigate("bank");
     }));
