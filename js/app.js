@@ -44,6 +44,14 @@
     return "★".repeat(d || 1) + "☆".repeat(Math.max(0, 5 - (d || 1)));
   }
 
+  function provenanceBadge(q) {
+    const p = q && q.provenance;
+    if (!p) return '<span class="mini-tag provenance">自编类似</span>';
+    const bits = [p.label || p.kind];
+    if (p.year) bits.push(String(p.year));
+    return '<span class="mini-tag provenance" title="' + escapeAttr(p.note || '') + '">' + escapeHtml(bits.join(' · ')) + '</span>';
+  }
+
   function formatTime(ts) {
     try {
       const d = new Date(ts);
@@ -81,6 +89,7 @@
     if (opts && opts.tab) state.tab = opts.tab;
     markTabEnter();
     GaokaoSpeech.stop();
+    if (window.GaokaoScan) GaokaoScan.stopCamera();
     const host = $("#anim-host");
     if (host) GaokaoAnim.stop(host);
     render();
@@ -105,9 +114,10 @@
     return `
       <section class="hero">
         <h1>高考数学练习</h1>
-        <p class="subtitle">题库 · 相似题 · 动画可视化 · 语音讲解 · 间隔记忆</p>
+        <p class="subtitle">题库 · 扫题 · 连续讲解 · 相似题 · 动画 · 间隔记忆</p>
         <div class="hero-actions">
           <button class="btn primary btn-lg" data-go="bank">进入题库</button>
+          <button class="btn btn-lg" data-go="scan">📷 扫题</button>
           <button class="btn btn-lg" data-go="anki">记忆卡片${due ? '<span class="badge">' + due + '</span>' : ""}</button>
         </div>
         <div class="stat-row">
@@ -146,6 +156,7 @@
           <button class="problem-card" data-open="${q.id}">
             <div class="pc-top">
               <span class="tag">${q.type || "题目"}</span>
+              ${provenanceBadge(q)}
               <span class="diff">${difficultyStars(q.difficulty)}</span>
             </div>
             <div class="pc-title">${escapeHtml(q.title)}</div>
@@ -184,7 +195,7 @@
         body = `
           <ol class="steps">${(p.steps || []).map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ol>
           <div class="speech-bar">
-            <button class="btn primary" id="btn-speak">🔊 语音讲解</button>
+            <button class="btn primary" id="btn-speak">🔊 仅步骤语音</button>
             <button class="btn" id="btn-speak-stop">停止</button>
           </div>
         `;
@@ -224,8 +235,13 @@
       <section class="problem-head">
         <button class="btn ghost back" data-go="bank">← 题库</button>
         <h1>${escapeHtml(p.title)}</h1>
-        <div class="pc-tags">${(p.tags || []).map((t) => `<span class="mini-tag">${t}</span>`).join("")}
+        <div class="pc-tags">${provenanceBadge(p)}${(p.tags || []).map((t) => `<span class="mini-tag">${t}</span>`).join("")}
           <span class="diff">${difficultyStars(p.difficulty)}</span>
+        </div>
+        <div class="speech-bar continuous">
+          <button class="btn primary" id="btn-play-all">▶ 一键连续讲解</button>
+          <button class="btn" id="btn-speak-stop">停止</button>
+          <span class="play-progress muted small" id="play-progress" hidden></span>
         </div>
       </section>
       <div class="tabs" role="tablist">
@@ -257,6 +273,34 @@
         <button class="btn danger" data-grade="wrong">✗ 我答错了</button>
       </div>
       <div id="practice-result"></div>
+    `;
+  }
+
+
+  function renderScan() {
+    return `
+      <section class="card">
+        <h2>📷 扫题 / 拍照识别</h2>
+        <p class="small muted">${escapeHtml(window.GaokaoScan ? GaokaoScan.limitsZh : "加载扫题模块…")}</p>
+        <div class="scan-actions">
+          <label class="btn primary btn-lg file-btn">拍照 / 相册
+            <input type="file" id="scan-file" accept="image/*" capture="environment" hidden />
+          </label>
+          <button class="btn btn-lg" id="scan-cam-start">开启后置摄像头</button>
+          <button class="btn" id="scan-cam-snap" hidden>拍照识别</button>
+          <button class="btn" id="scan-cam-stop" hidden>关闭摄像头</button>
+        </div>
+        <video id="scan-video" class="scan-video" playsinline muted hidden></video>
+        <img id="scan-preview" class="scan-preview" alt="预览" hidden />
+        <p id="scan-status" class="muted small"></p>
+        <label class="small">识别/手改题干（可编辑后匹配）</label>
+        <textarea id="scan-stem" class="search scan-stem" rows="4" placeholder="OCR 结果会出现在这里，请核对后点匹配"></textarea>
+        <div class="speech-bar">
+          <button class="btn primary" id="scan-match">匹配题库</button>
+          <button class="btn" id="scan-practice-manual">用此题干练习（记历史）</button>
+        </div>
+        <div id="scan-matches" class="problem-list"></div>
+      </section>
     `;
   }
 
@@ -348,12 +392,14 @@
           <li>按标签匹配相似题</li>
           <li>解题步骤 + 知识点 + 生活应用 + 数学史</li>
           <li>SVG/Canvas 动画可视化</li>
-          <li>Web Speech API 中文语音讲解</li>
+          <li>Web Speech API：题干→步骤→知识点→生活应用→历史 一键连续播放</li>
+          <li>相机/相册扫题 + Tesseract.js 客户端 OCR + 题库匹配（可手改题干）</li>
+          <li>题库标注来源：真题风格 / 省模拟卷风格 / 自编类似（均为原创练习）</li>
           <li>练习历史（localStorage）</li>
           <li>Anki 风格间隔重复（SM-2 简化）</li>
           <li>移动优先，适配 iPhone Safari</li>
         </ul>
-        <p class="small muted">后续：原生 iOS App、相机扫题 OCR、云同步题库与更高质量 TTS。</p>
+        <p class="small muted">${window.GaokaoScan ? GaokaoScan.limitsZh : ""}</p>
       </section>
       ${renderFeedback()}
     `;
@@ -365,6 +411,7 @@
         <button class="logo" data-go="home" aria-label="首页">高考数学</button>
         <nav class="nav">
           <button data-go="bank" class="${state.view === "bank" || state.view === "problem" ? "active" : ""}">题库</button>
+          <button data-go="scan" class="${state.view === "scan" ? "active" : ""}">扫题</button>
           <button data-go="anki" class="${state.view === "anki" ? "active" : ""}">卡片${AnkiStore.dueCount() ? "(" + AnkiStore.dueCount() + ")" : ""}</button>
           <button data-go="history" class="${state.view === "history" ? "active" : ""}">历史</button>
           <button data-go="about" class="${state.view === "about" ? "active" : ""}">关于</button>
@@ -381,6 +428,7 @@
     switch (state.view) {
       case "home": content = renderHome(); break;
       case "bank": content = renderBank(); break;
+      case "scan": content = renderScan(); break;
       case "problem": content = renderProblem(); break;
       case "history": content = renderHistory(); break;
       case "anki": content = renderAnki(); break;
@@ -486,6 +534,75 @@
       if (slot) slot.hidden = false;
     });
 
+    function resetSpeakButtons() {
+      const b = $("#btn-speak");
+      if (b) b.textContent = "🔊 仅步骤语音";
+      const a = $("#btn-play-all");
+      if (a) { a.textContent = "▶ 一键连续讲解"; a.disabled = false; }
+      const prog = $("#play-progress");
+      if (prog) { prog.hidden = true; prog.textContent = ""; }
+    }
+
+    function switchTabQuiet(next) {
+      if (state.tab === next) return;
+      trackTabTime(next);
+      state.tab = next;
+      state.practiceChoice = null;
+      // soft re-render without stopping speech: temporarily stub stop
+      const realStop = GaokaoSpeech.stop;
+      GaokaoSpeech.stop = function () {};
+      try { render(); } finally { GaokaoSpeech.stop = realStop; }
+    }
+
+    function buildContinuousSegments(p) {
+      const stepsText = (p.steps || []).map((s, i) => "第" + (i + 1) + "步。" + s).join("");
+      return [
+        { id: "stem", title: "题干", text: p.stem + (p.choices ? "。选项：" + p.choices.join("；") : ""), onStart: () => switchTabQuiet("stem") },
+        { id: "steps", title: "讲解步骤", text: stepsText, onStart: () => {
+          switchTabQuiet("steps");
+          const host = document.createElement("div");
+          // ensure anim can run briefly in parallel when we hit steps→anim later
+        }},
+        { id: "knowledge", title: "知识点", text: (p.knowledgePoints || []).join("。"), onStart: () => switchTabQuiet("knowledge") },
+        { id: "life", title: "生活应用", text: (p.lifeApplications || []).join("。"), onStart: () => switchTabQuiet("life") },
+        { id: "history", title: "历史", text: p.historyNote || "暂无历史说明", onStart: () => {
+          switchTabQuiet("history");
+        }},
+        { id: "anim", title: "动画提示", text: "下面播放本题可视化动画。", onStart: () => {
+          switchTabQuiet("anim");
+          setTimeout(() => {
+            const host = $("#anim-host");
+            if (host && p.animationSpec) GaokaoAnim.play(p.animationSpec, host);
+          }, 80);
+        }}
+      ].filter((s) => String(s.text || "").trim());
+    }
+
+    const playAll = $("#btn-play-all");
+    if (playAll) playAll.addEventListener("click", () => {
+      const p = qs.find((q) => q.id === state.problemId);
+      if (!p) return;
+      if (!GaokaoSpeech.supported()) {
+        alert("当前浏览器不支持语音合成。请使用 Safari / Chrome。");
+        return;
+      }
+      playAll.textContent = "连续讲解中…";
+      playAll.disabled = true;
+      const prog = $("#play-progress");
+      if (prog) prog.hidden = false;
+      if (window.GaokaoTelemetry) GaokaoTelemetry.track("tts_play_all", { problemId: p.id });
+      GaokaoSpeech.speakQueue(buildContinuousSegments(p), {
+        onSegmentStart: (seg, i, n) => {
+          const el = $("#play-progress");
+          if (el) { el.hidden = false; el.textContent = (i + 1) + "/" + n + " " + (seg.title || ""); }
+          const btn = $("#btn-play-all");
+          if (btn) { btn.textContent = "连续讲解中…"; btn.disabled = true; }
+        },
+        onEnd: () => { resetSpeakButtons(); },
+        onError: () => { resetSpeakButtons(); alert("语音播放失败"); }
+      });
+    });
+
     const speak = $("#btn-speak");
     if (speak) speak.addEventListener("click", () => {
       const p = qs.find((q) => q.id === state.problemId);
@@ -495,17 +612,107 @@
         return;
       }
       speak.textContent = "讲解中…";
-      if (window.GaokaoTelemetry) GaokaoTelemetry.track("tts_play", { problemId: p.id });
+      if (window.GaokaoTelemetry) GaokaoTelemetry.track("tts_play", { problemId: p.id, mode: "steps" });
       GaokaoSpeech.speakSteps(p.steps, {
-        onEnd: () => { speak.textContent = "🔊 语音讲解"; },
-        onError: () => { speak.textContent = "🔊 语音讲解"; }
+        onEnd: () => { resetSpeakButtons(); },
+        onError: () => { resetSpeakButtons(); }
       });
     });
     const stop = $("#btn-speak-stop");
     if (stop) stop.addEventListener("click", () => {
       GaokaoSpeech.stop();
-      const b = $("#btn-speak");
-      if (b) b.textContent = "🔊 语音讲解";
+      resetSpeakButtons();
+    });
+
+    // ---- 扫题 ----
+    const status = (msg) => { const el = $("#scan-status"); if (el) el.textContent = msg || ""; };
+    const scanFile = $("#scan-file");
+    async function runOcrOnBlob(blob) {
+      if (!window.GaokaoScan) { status("扫题模块未加载"); return; }
+      status("正在 OCR 识别（首次需下载语言模型，请稍候）…");
+      const preview = $("#scan-preview");
+      if (preview && blob) {
+        preview.src = URL.createObjectURL(blob);
+        preview.hidden = false;
+      }
+      try {
+        const text = await GaokaoScan.ocrImage(blob, (m) => {
+          if (m.status === "recognizing text" && m.progress != null) {
+            status("识别中 " + Math.round(m.progress * 100) + "%");
+          } else if (m.status) status(m.status);
+        });
+        const stem = $("#scan-stem");
+        if (stem) stem.value = String(text || "").trim();
+        status(text && text.trim() ? "识别完成，请核对题干后点「匹配题库」" : "未识别出文字，请手改题干或换更清晰照片");
+        if (window.GaokaoTelemetry) GaokaoTelemetry.track("scan_ocr", { ok: !!(text && text.trim()), chars: (text || "").length });
+      } catch (e) {
+        status("OCR 失败：" + (e && e.message || e) + "。可手填题干后匹配。");
+      }
+    }
+    if (scanFile) scanFile.addEventListener("change", () => {
+      const f = scanFile.files && scanFile.files[0];
+      if (f) runOcrOnBlob(f);
+    });
+    const camStart = $("#scan-cam-start");
+    if (camStart) camStart.addEventListener("click", async () => {
+      const video = $("#scan-video");
+      if (!video || !window.GaokaoScan) return;
+      try {
+        status("请求摄像头权限…");
+        await GaokaoScan.startCamera(video);
+        video.hidden = false;
+        $("#scan-cam-snap").hidden = false;
+        $("#scan-cam-stop").hidden = false;
+        status("摄像头已开启，对准题目后点「拍照识别」");
+      } catch (e) {
+        status((e && e.message) || String(e));
+        alert("无法开启摄像头，请改用「拍照 / 相册」。\n" + ((e && e.message) || e));
+      }
+    });
+    const camSnap = $("#scan-cam-snap");
+    if (camSnap) camSnap.addEventListener("click", async () => {
+      const video = $("#scan-video");
+      if (!video || !window.GaokaoScan) return;
+      const blob = await GaokaoScan.captureFromVideo(video);
+      await runOcrOnBlob(blob);
+    });
+    const camStop = $("#scan-cam-stop");
+    if (camStop) camStop.addEventListener("click", () => {
+      if (window.GaokaoScan) GaokaoScan.stopCamera();
+      const video = $("#scan-video");
+      if (video) { video.srcObject = null; video.hidden = true; }
+      if (camSnap) camSnap.hidden = true;
+      camStop.hidden = true;
+      status("摄像头已关闭");
+    });
+    const matchBtn = $("#scan-match");
+    if (matchBtn) matchBtn.addEventListener("click", () => {
+      const stem = ($("#scan-stem") && $("#scan-stem").value) || "";
+      const box = $("#scan-matches");
+      if (!stem.trim()) { alert("请先拍照识别或手填题干"); return; }
+      const hits = GaokaoScan.matchBank(stem, qs, 8);
+      if (window.GaokaoTelemetry) GaokaoTelemetry.track("scan_match", { hits: hits.length, stemLen: stem.length });
+      if (!box) return;
+      if (!hits.length) {
+        box.innerHTML = '<p class="muted">未匹配到相近题目。可手改题干再试，或进入题库按标签练习。</p>';
+        return;
+      }
+      box.innerHTML = hits.map(({ q, score }) => `
+        <button class="problem-card" data-open="${q.id}">
+          <div class="pc-top"><span class="tag">匹配 ${Math.round(score * 100)}%</span>${provenanceBadge(q)}</div>
+          <div class="pc-title">${escapeHtml(q.title)}</div>
+          <div class="pc-stem">${escapeHtml(q.stem.slice(0, 64))}${q.stem.length > 64 ? "…" : ""}</div>
+        </button>`).join("");
+      box.querySelectorAll("[data-open]").forEach((el) => el.addEventListener("click", () => openProblem(el.getAttribute("data-open"))));
+    });
+    const manual = $("#scan-practice-manual");
+    if (manual) manual.addEventListener("click", () => {
+      const stem = ($("#scan-stem") && $("#scan-stem").value || "").trim();
+      if (!stem) { alert("请先填写题干"); return; }
+      HistoryStore.add({ problemId: "scan-manual", result: "scan", note: stem.slice(0, 200) });
+      if (window.GaokaoTelemetry) GaokaoTelemetry.track("scan_manual", { stemLen: stem.length });
+      status("已记入历史（扫题手填）。请在题库中找相似题继续练习。");
+      alert("已记录扫题题干。建议点「匹配题库」打开相近练习题。");
     });
 
     const replay = $("#btn-replay-anim");

@@ -1,6 +1,6 @@
 /**
- * 高考数学题库 MVP — 内嵌题目数据
- * 每题含：题干、标签、难度、答案、步骤、知识点、生活应用、历史、动画规格
+ * 高考数学题库 — 含真题风格/省模拟风格/自编类似（均为原创，非试卷原文）
+ * provenance: {kind,label,year,province,paper,note}
  */
 window.GAOKAO_QUESTIONS = [
   {
@@ -12,7 +12,8 @@ window.GAOKAO_QUESTIONS = [
       "函数",
       "二次函数",
       "最值",
-      "闭区间"
+      "闭区间",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "最大值 3，最小值 -1",
@@ -44,6 +45,14 @@ window.GAOKAO_QUESTIONS = [
         2,
         -1
       ]
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -55,7 +64,8 @@ window.GAOKAO_QUESTIONS = [
       "函数",
       "对数",
       "指数",
-      "换底公式"
+      "换底公式",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "2",
@@ -98,6 +108,14 @@ window.GAOKAO_QUESTIONS = [
         }
       ],
       "highlight": 2
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -108,7 +126,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "函数",
       "奇偶性",
-      "对数"
+      "对数",
+      "自编类似"
     ],
     "difficulty": 3,
     "answer": "奇函数",
@@ -132,6 +151,14 @@ window.GAOKAO_QUESTIONS = [
       "kind": "functionSketch",
       "type": "odd",
       "label": "f(-x)=-f(x)"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -142,7 +169,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "三角函数",
       "象限",
-      "同角关系"
+      "同角关系",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "cosθ=-4/5，tanθ=-3/4",
@@ -167,6 +195,14 @@ window.GAOKAO_QUESTIONS = [
       "angle": 143.13010235415598,
       "sin": 0.6,
       "cos": -0.8
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -177,7 +213,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "三角函数",
       "正弦定理",
-      "解三角形"
+      "解三角形",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "√3",
@@ -214,6 +251,14 @@ window.GAOKAO_QUESTIONS = [
         "√3",
         "c"
       ]
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -224,7 +269,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "三角函数",
       "二倍角",
-      "恒等变换"
+      "恒等变换",
+      "自编类似"
     ],
     "difficulty": 1,
     "answer": "cos²α-sin²α=1/3；2sinαcosα=±2√2/3",
@@ -248,6 +294,14 @@ window.GAOKAO_QUESTIONS = [
       "kind": "wave",
       "freq": 2,
       "label": "cos2α"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -258,7 +312,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "数列",
       "等差数列",
-      "求和"
+      "求和",
+      "自编类似"
     ],
     "difficulty": 1,
     "answer": "440",
@@ -293,6 +348,14 @@ window.GAOKAO_QUESTIONS = [
       ],
       "sumTarget": 440,
       "n": 20
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -303,7 +366,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "数列",
       "等比数列",
-      "无穷级数"
+      "无穷级数",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "4",
@@ -327,6 +391,14 @@ window.GAOKAO_QUESTIONS = [
       "ratio": 0.5,
       "first": 2,
       "limit": 4
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -337,7 +409,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "数列",
       "递推",
-      "构造法"
+      "构造法",
+      "自编类似"
     ],
     "difficulty": 3,
     "answer": "a_n=2^n - 1",
@@ -367,6 +440,14 @@ window.GAOKAO_QUESTIONS = [
         31
       ],
       "label": "2^n-1"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -377,7 +458,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "概率",
       "古典概型",
-      "组合"
+      "组合",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "3/5",
@@ -409,6 +491,14 @@ window.GAOKAO_QUESTIONS = [
       "draw": 2,
       "favorable": 6,
       "total": 10
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -419,7 +509,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "概率",
       "二项分布",
-      "独立重复"
+      "独立重复",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "C(3,2)·0.8²·0.2=0.384",
@@ -443,6 +534,14 @@ window.GAOKAO_QUESTIONS = [
       "n": 3,
       "p": 0.8,
       "k": 2
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -452,7 +551,8 @@ window.GAOKAO_QUESTIONS = [
     "type": "选择题",
     "tags": [
       "概率",
-      "条件概率"
+      "条件概率",
+      "自编类似"
     ],
     "difficulty": 1,
     "answer": "1/3",
@@ -481,6 +581,14 @@ window.GAOKAO_QUESTIONS = [
       "kind": "dice",
       "condition": "even",
       "target": 6
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -491,7 +599,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "立体几何",
       "异面直线",
-      "距离"
+      "距离",
+      "自编类似"
     ],
     "difficulty": 3,
     "answer": "√2",
@@ -517,6 +626,14 @@ window.GAOKAO_QUESTIONS = [
       "kind": "cube",
       "edge": 2,
       "highlight": "skew"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -527,7 +644,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "立体几何",
       "体积",
-      "三棱锥"
+      "三棱锥",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "4/3",
@@ -556,6 +674,14 @@ window.GAOKAO_QUESTIONS = [
     "animationSpec": {
       "kind": "tetra",
       "edge": 2
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -566,7 +692,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "解析几何",
       "圆",
-      "直线"
+      "直线",
+      "自编类似"
     ],
     "difficulty": 1,
     "answer": "相交",
@@ -599,6 +726,14 @@ window.GAOKAO_QUESTIONS = [
         1,
         -2
       ]
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -609,7 +744,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "解析几何",
       "椭圆",
-      "离心率"
+      "离心率",
+      "自编类似"
     ],
     "difficulty": 1,
     "answer": "3/5",
@@ -639,6 +775,14 @@ window.GAOKAO_QUESTIONS = [
       "a": 5,
       "b": 4,
       "c": 3
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -649,7 +793,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "解析几何",
       "抛物线",
-      "焦点"
+      "焦点",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "焦点 (1,0)；斜率 1",
@@ -671,6 +816,14 @@ window.GAOKAO_QUESTIONS = [
     "animationSpec": {
       "kind": "parabolaFocus",
       "p": 2
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -681,7 +834,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "导数",
       "切线",
-      "函数"
+      "函数",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "y=-2",
@@ -707,6 +861,14 @@ window.GAOKAO_QUESTIONS = [
       "x0": 1,
       "y0": -2,
       "slope": 0
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -717,7 +879,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "导数",
       "极值",
-      "函数"
+      "函数",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "极大值 f(-1)=3；极小值 f(1)=-1",
@@ -748,6 +911,14 @@ window.GAOKAO_QUESTIONS = [
         3,
         -1
       ]
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -758,7 +929,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "极限",
       "三角函数",
-      "导数基础"
+      "导数基础",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "1",
@@ -786,6 +958,14 @@ window.GAOKAO_QUESTIONS = [
     "animationSpec": {
       "kind": "limitSinx",
       "approach": 0
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -796,7 +976,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "函数",
       "连续性",
-      "极限"
+      "极限",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "a=1",
@@ -817,6 +998,14 @@ window.GAOKAO_QUESTIONS = [
     "animationSpec": {
       "kind": "piecewise",
       "a": 1
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -827,7 +1016,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "三角函数",
       "余弦定理",
-      "解三角形"
+      "解三角形",
+      "自编类似"
     ],
     "difficulty": 2,
     "answer": "cosC=(a²+b²-c²)/(2ab)=14/50=0.28；C=arccos(0.28)",
@@ -854,6 +1044,14 @@ window.GAOKAO_QUESTIONS = [
         6
       ],
       "highlightAngle": "C"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -864,7 +1062,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "数列",
       "不等式",
-      "放缩"
+      "放缩",
+      "自编类似"
     ],
     "difficulty": 3,
     "answer": "放缩：1/k²<1/(k(k-1))=1/(k-1)-1/k（k≥2），裂项求和得 S_n<2",
@@ -894,6 +1093,14 @@ window.GAOKAO_QUESTIONS = [
         1.42
       ],
       "limit": 2
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -904,7 +1111,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "解析几何",
       "直线",
-      "点斜式"
+      "点斜式",
+      "自编类似"
     ],
     "difficulty": 1,
     "answer": "y-2=3(x-1) 或 y=3x-1",
@@ -928,6 +1136,14 @@ window.GAOKAO_QUESTIONS = [
         1,
         2
       ]
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   },
   {
@@ -938,7 +1154,8 @@ window.GAOKAO_QUESTIONS = [
     "tags": [
       "立体几何",
       "球体",
-      "公式"
+      "公式",
+      "自编类似"
     ],
     "difficulty": 1,
     "answer": "V=36π,S=36π",
@@ -965,6 +1182,1783 @@ window.GAOKAO_QUESTIONS = [
     "animationSpec": {
       "kind": "sphere",
       "r": 3
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·基础题库",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "gk19-log",
+    "title": "对数比较大小",
+    "stem": "设 a=log₂0.5，b=log₃0.5，则（ ）。",
+    "type": "选择题",
+    "tags": [
+      "函数",
+      "对数",
+      "比较大小",
+      "真题风格",
+      "全国卷",
+      "全国Ⅰ卷",
+      "2019"
+    ],
+    "difficulty": 2,
+    "answer": "a<b<0",
+    "choices": [
+      "a<b<0",
+      "b<a<0",
+      "a<0<b",
+      "b<0<a"
+    ],
+    "steps": [
+      "真数0.5∈(0,1)且底>1，故 a<0，b<0。",
+      "换底后 |a|>|b| 且同负，故 a<b<0。"
+    ],
+    "knowledgePoints": [
+      "对数符号",
+      "换底公式"
+    ],
+    "lifeApplications": [
+      "衰减量级比较"
+    ],
+    "historyNote": "对数由纳皮尔发明，高考常考不同底比较。",
+    "animationSpec": {
+      "kind": "functionSketch"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·全国Ⅰ卷",
+      "year": 2019,
+      "province": "全国Ⅰ卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "gk20-arith",
+    "title": "等差数列求和",
+    "stem": "等差数列{a_n}中，a₃+a₇=16，a₄·a₆=63，则 S₁₀=____（两解都写）。",
+    "type": "填空题",
+    "tags": [
+      "数列",
+      "等差数列",
+      "求和",
+      "真题风格",
+      "全国卷",
+      "全国Ⅱ卷",
+      "2020"
+    ],
+    "difficulty": 3,
+    "answer": "85或75",
+    "steps": [
+      "a₃+a₇=2a₅=16⇒a₅=8。",
+      "a₄a₆=64-d²=63⇒d=±1。",
+      "d=1时a₁=4，S₁₀=85；d=-1时a₁=12，S₁₀=75。"
+    ],
+    "knowledgePoints": [
+      "等差中项",
+      "前n项和"
+    ],
+    "lifeApplications": [
+      "等差额累加"
+    ],
+    "historyNote": "等差思想见于古代垛积术。",
+    "animationSpec": {
+      "kind": "sequence"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·全国Ⅱ卷",
+      "year": 2020,
+      "province": "全国Ⅱ卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "gk21-tri",
+    "title": "解三角形求面积",
+    "stem": "△ABC中 A=60°，a=√3，b+c=3，面积为____。",
+    "type": "填空题",
+    "tags": [
+      "三角函数",
+      "解三角形",
+      "余弦定理",
+      "真题风格",
+      "全国卷",
+      "全国甲卷",
+      "2021"
+    ],
+    "difficulty": 3,
+    "answer": "√3/2",
+    "steps": [
+      "S=√3/4·bc。",
+      "余弦定理3=b²+c²-bc，结合(b+c)²=9得bc=2。",
+      "S=√3/2。"
+    ],
+    "knowledgePoints": [
+      "余弦定理",
+      "面积公式"
+    ],
+    "lifeApplications": [
+      "地块测面积"
+    ],
+    "historyNote": "解三角形是课标主干。",
+    "animationSpec": {
+      "kind": "triangle"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·全国甲卷",
+      "year": 2021,
+      "province": "全国甲卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "gk22-der",
+    "title": "指数型不等式恒成立",
+    "stem": "f(x)=e^x−ax−1≥0 对一切实数x恒成立，则 a=____。",
+    "type": "填空题",
+    "tags": [
+      "导数",
+      "恒成立",
+      "指数函数",
+      "真题风格",
+      "全国卷",
+      "全国乙卷",
+      "2022"
+    ],
+    "difficulty": 4,
+    "answer": "1",
+    "steps": [
+      "f(0)=0，f凸。",
+      "由 e^x≥1+x 知 a=1 恰恒成立，a≠1 会出现负值。"
+    ],
+    "knowledgePoints": [
+      "切线与凸性",
+      "导数分析"
+    ],
+    "lifeApplications": [
+      "增长率约束"
+    ],
+    "historyNote": "指数凸性是导数压轴常见骨架。",
+    "animationSpec": {
+      "kind": "extrema"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·全国乙卷",
+      "year": 2022,
+      "province": "全国乙卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "gk23-ell",
+    "title": "椭圆方程",
+    "stem": "椭圆 x²/a²+y²/b²=1(a>b>0) 离心率√3/2，过点(√3,1/2)，方程为____。",
+    "type": "填空题",
+    "tags": [
+      "解析几何",
+      "椭圆",
+      "离心率",
+      "真题风格",
+      "全国卷",
+      "新高考Ⅰ卷",
+      "2023"
+    ],
+    "difficulty": 3,
+    "answer": "x²/4+y²=1",
+    "steps": [
+      "e=√3/2⇒b²=a²/4。",
+      "点代入得 a²=4，b²=1。"
+    ],
+    "knowledgePoints": [
+      "离心率",
+      "待定系数"
+    ],
+    "lifeApplications": [
+      "轨道扁率"
+    ],
+    "historyNote": "圆锥曲线可追溯到阿波罗尼奥斯。",
+    "animationSpec": {
+      "kind": "ellipse"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·新高考Ⅰ卷",
+      "year": 2023,
+      "province": "新高考Ⅰ卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "gk24-cond",
+    "title": "条件概率",
+    "stem": "袋中3红2白，任取2球。已知至少一红，求两球都红的概率。",
+    "type": "选择题",
+    "tags": [
+      "概率",
+      "条件概率",
+      "真题风格",
+      "全国卷",
+      "新高考Ⅱ卷",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "1/3",
+    "choices": [
+      "1/3",
+      "3/10",
+      "1/2",
+      "2/5"
+    ],
+    "steps": [
+      "总数C(5,2)=10，至少一红9种，两红3种，概率1/3。"
+    ],
+    "knowledgePoints": [
+      "古典概型",
+      "条件概率"
+    ],
+    "lifeApplications": [
+      "抽样质检"
+    ],
+    "historyNote": "条件概率是贝叶斯思想基础。",
+    "animationSpec": {
+      "kind": "balls"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·新高考Ⅱ卷",
+      "year": 2024,
+      "province": "新高考Ⅱ卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "gk20-cube",
+    "title": "正方体截面面积",
+    "stem": "棱长2的正方体中，E、F为AA₁、CC₁中点，截面EB₁FD₁面积为____。",
+    "type": "填空题",
+    "tags": [
+      "立体几何",
+      "截面",
+      "向量",
+      "真题风格",
+      "全国卷",
+      "全国Ⅲ卷",
+      "2020"
+    ],
+    "difficulty": 4,
+    "answer": "2√6",
+    "steps": [
+      "向量EB₁=(2,0,1)，ED₁=(0,2,1)，叉积模√24=2√6。"
+    ],
+    "knowledgePoints": [
+      "空间向量",
+      "叉积"
+    ],
+    "lifeApplications": [
+      "斜切面材料"
+    ],
+    "historyNote": "向量法是立体几何主流工具。",
+    "animationSpec": {
+      "kind": "cube"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·全国Ⅲ卷",
+      "year": 2020,
+      "province": "全国Ⅲ卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "bj22-abs",
+    "title": "绝对值函数交点",
+    "stem": "f(x)=|x−1|+|x+1|，g(x)=kx+2。若恰有2个交点，则 k 的范围是____。",
+    "type": "填空题",
+    "tags": [
+      "函数",
+      "绝对值",
+      "真题风格",
+      "省卷",
+      "北京",
+      "2022"
+    ],
+    "difficulty": 3,
+    "answer": "0<|k|<2",
+    "steps": [
+      "f在[-1,1]恒为2，两侧斜率±2。",
+      "g过(0,2)。k=0时中段重合无穷交点。",
+      "0<|k|<2时恰2交点。"
+    ],
+    "knowledgePoints": [
+      "绝对值分段",
+      "参数讨论"
+    ],
+    "lifeApplications": [
+      "线性成本模型"
+    ],
+    "historyNote": "北京卷强调图像与参数。",
+    "animationSpec": {
+      "kind": "piecewise"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·北京",
+      "year": 2022,
+      "province": "北京",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "sh21-bin",
+    "title": "二项式系数",
+    "stem": "(1+2x)^5 展开式中 x² 的系数为____。",
+    "type": "填空题",
+    "tags": [
+      "二项式定理",
+      "系数",
+      "真题风格",
+      "省卷",
+      "上海",
+      "2021"
+    ],
+    "difficulty": 2,
+    "answer": "40",
+    "steps": [
+      "T₃=C(5,2)(2x)²=10·4=40。"
+    ],
+    "knowledgePoints": [
+      "二项式通项"
+    ],
+    "lifeApplications": [
+      "近似展开"
+    ],
+    "historyNote": "二项定理与帕斯卡三角形同源。",
+    "animationSpec": {
+      "kind": "binomial"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·上海",
+      "year": 2021,
+      "province": "上海",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "zj23-seq",
+    "title": "等比数列",
+    "stem": "等比数列 a₁=2，a₁+a₂+a₃=14，求 a₄（两解）。",
+    "type": "填空题",
+    "tags": [
+      "数列",
+      "等比数列",
+      "真题风格",
+      "省卷",
+      "浙江",
+      "2023"
+    ],
+    "difficulty": 2,
+    "answer": "16或-54",
+    "steps": [
+      "2(1+q+q²)=14⇒q=2或-3。",
+      "a₄=16或-54。"
+    ],
+    "knowledgePoints": [
+      "等比求和",
+      "公比"
+    ],
+    "lifeApplications": [
+      "复利"
+    ],
+    "historyNote": "浙江卷常考公比分类。",
+    "animationSpec": {
+      "kind": "sequence"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·浙江",
+      "year": 2023,
+      "province": "浙江",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "js22-vec",
+    "title": "平面向量数量积",
+    "stem": "|a|=2，|b|=3，a·b=3，则 |a+b|=____。",
+    "type": "填空题",
+    "tags": [
+      "平面向量",
+      "数量积",
+      "真题风格",
+      "省卷",
+      "江苏",
+      "2022"
+    ],
+    "difficulty": 2,
+    "answer": "√19",
+    "steps": [
+      "|a+b|²=4+9+6=19。"
+    ],
+    "knowledgePoints": [
+      "数量积与模"
+    ],
+    "lifeApplications": [
+      "力的合成"
+    ],
+    "historyNote": "向量是江苏卷基础题。",
+    "animationSpec": {
+      "kind": "line"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·江苏",
+      "year": 2022,
+      "province": "江苏",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "sd24-ineq",
+    "title": "基本不等式",
+    "stem": "x>0，y>0，x+2y=6，xy 最大值为____。",
+    "type": "填空题",
+    "tags": [
+      "不等式",
+      "基本不等式",
+      "真题风格",
+      "省卷",
+      "山东",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "9/2",
+    "steps": [
+      "x+2y≥2√(2xy)，6≥2√(2xy)⇒xy≤9/2，等号x=3,y=1.5。"
+    ],
+    "knowledgePoints": [
+      "基本不等式",
+      "等号条件"
+    ],
+    "lifeApplications": [
+      "产量优化"
+    ],
+    "historyNote": "基本不等式是山东卷高频。",
+    "animationSpec": {
+      "kind": "extrema"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·山东",
+      "year": 2024,
+      "province": "山东",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "gd23-cir",
+    "title": "圆的弦长",
+    "stem": "圆 x²+y²=25 被直线 x−y+1=0 所截弦长为____。",
+    "type": "填空题",
+    "tags": [
+      "解析几何",
+      "圆",
+      "弦长",
+      "真题风格",
+      "省卷",
+      "广东",
+      "2023"
+    ],
+    "difficulty": 2,
+    "answer": "7√2",
+    "steps": [
+      "d=√2/2，弦长2√(25-1/2)=7√2。"
+    ],
+    "knowledgePoints": [
+      "弦长公式"
+    ],
+    "lifeApplications": [
+      "圆形截线"
+    ],
+    "historyNote": "圆与直线是广东卷基础。",
+    "animationSpec": {
+      "kind": "circleLine"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·广东",
+      "year": 2023,
+      "province": "广东",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "gk19-bin2",
+    "title": "二项式常数项",
+    "stem": "(√x−1/√x)^6 展开式常数项为____。",
+    "type": "填空题",
+    "tags": [
+      "二项式定理",
+      "真题风格",
+      "全国卷",
+      "全国Ⅱ卷",
+      "2019"
+    ],
+    "difficulty": 3,
+    "answer": "-20",
+    "steps": [
+      "通项指数(6-2r)/2=0⇒r=3，C(6,3)(-1)^3=-20。"
+    ],
+    "knowledgePoints": [
+      "二项式通项"
+    ],
+    "lifeApplications": [
+      "近似展开"
+    ],
+    "historyNote": "二项展开常见于概率生成函数。",
+    "animationSpec": {
+      "kind": "binomial"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·全国Ⅱ卷",
+      "year": 2019,
+      "province": "全国Ⅱ卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "gk25-new",
+    "title": "数列倒数构造",
+    "stem": "a₁=1，a_{n+1}=a_n/(1+a_n)，求 a_n。",
+    "type": "填空题",
+    "tags": [
+      "数列",
+      "递推",
+      "真题风格",
+      "全国卷",
+      "新高考Ⅰ卷",
+      "2025"
+    ],
+    "difficulty": 3,
+    "answer": "1/n",
+    "steps": [
+      "1/a_{n+1}=1/a_n+1，故 1/a_n=n，a_n=1/n。"
+    ],
+    "knowledgePoints": [
+      "倒数构造"
+    ],
+    "lifeApplications": [
+      "并联电阻累加类比"
+    ],
+    "historyNote": "构造法是数列综合灵魂。",
+    "animationSpec": {
+      "kind": "sequence"
+    },
+    "provenance": {
+      "kind": "真题风格",
+      "label": "真题风格·新高考Ⅰ卷",
+      "year": 2025,
+      "province": "新高考Ⅰ卷",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-hn-fn",
+    "title": "湖南模拟·对数方程",
+    "stem": "方程 log₂(x−1)+log₂(x+1)=3 的解为____。",
+    "type": "填空题",
+    "tags": [
+      "函数",
+      "对数方程",
+      "模拟卷",
+      "省卷",
+      "湖南",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "3",
+    "steps": [
+      "真数x>1",
+      "log₂(x²−1)=3⇒x²=9⇒x=3"
+    ],
+    "knowledgePoints": [
+      "对数运算法则",
+      "定义域"
+    ],
+    "lifeApplications": [
+      "信号倍增"
+    ],
+    "historyNote": "省级模拟强调定义域。",
+    "animationSpec": {
+      "kind": "functionSketch"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·湖南",
+      "year": 2024,
+      "province": "湖南",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-hb-der",
+    "title": "湖北模拟·切线",
+    "stem": "曲线 y=x³−3x 在点(2,2)处切线方程____。",
+    "type": "填空题",
+    "tags": [
+      "导数",
+      "切线",
+      "模拟卷",
+      "省卷",
+      "湖北",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "y=9x−16",
+    "steps": [
+      "y′=3x²−3，x=2时斜率9",
+      "y−2=9(x−2)"
+    ],
+    "knowledgePoints": [
+      "导数几何意义"
+    ],
+    "lifeApplications": [
+      "瞬时变化率"
+    ],
+    "historyNote": "切线是微积分入门核心。",
+    "animationSpec": {
+      "kind": "tangent"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·湖北",
+      "year": 2024,
+      "province": "湖北",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-sc-tri",
+    "title": "四川模拟·正弦定理",
+    "stem": "△ABC中 A=45°，B=60°，a=√2，则 b=____。",
+    "type": "填空题",
+    "tags": [
+      "解三角形",
+      "正弦定理",
+      "模拟卷",
+      "省卷",
+      "四川",
+      "2023"
+    ],
+    "difficulty": 2,
+    "answer": "√3",
+    "steps": [
+      "正弦定理 √2/sin45°=b/sin60°",
+      "得 b=√3"
+    ],
+    "knowledgePoints": [
+      "正弦定理"
+    ],
+    "lifeApplications": [
+      "测距"
+    ],
+    "historyNote": "四川卷长考解三角形。",
+    "animationSpec": {
+      "kind": "triangle"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·四川",
+      "year": 2023,
+      "province": "四川",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-he-seq",
+    "title": "河北模拟·递推数列",
+    "stem": "a₁=1，a_{n+1}=2a_n+1，求 a_n。",
+    "type": "填空题",
+    "tags": [
+      "数列",
+      "递推",
+      "模拟卷",
+      "省卷",
+      "河北",
+      "2024"
+    ],
+    "difficulty": 3,
+    "answer": "2^n−1",
+    "steps": [
+      "令 b_n=a_n+1，b_{n+1}=2b_n，b₁=2",
+      "a_n=2^n−1"
+    ],
+    "knowledgePoints": [
+      "构造等比"
+    ],
+    "lifeApplications": [
+      "细胞分裂模型"
+    ],
+    "historyNote": "递推构造常见于模拟压轴入口。",
+    "animationSpec": {
+      "kind": "sequence"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·河北",
+      "year": 2024,
+      "province": "河北",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-tj-prob",
+    "title": "天津模拟·独立重复",
+    "stem": "掷均匀骰子3次，恰2次点数>4的概率____。",
+    "type": "填空题",
+    "tags": [
+      "概率",
+      "二项分布",
+      "模拟卷",
+      "省卷",
+      "天津",
+      "2023"
+    ],
+    "difficulty": 2,
+    "answer": "2/9",
+    "steps": [
+      "P=1/3",
+      "C(3,2)(1/3)²(2/3)=2/9"
+    ],
+    "knowledgePoints": [
+      "独立重复试验"
+    ],
+    "lifeApplications": [
+      "合格率抽检"
+    ],
+    "historyNote": "二项模型是天津卷常客。",
+    "animationSpec": {
+      "kind": "dice"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·天津",
+      "year": 2023,
+      "province": "天津",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-cq-anal",
+    "title": "重庆模拟·抛物线",
+    "stem": "抛物线 y²=4x 上一点到焦点距离为5，则到准线距离____。",
+    "type": "填空题",
+    "tags": [
+      "抛物线",
+      "定义",
+      "模拟卷",
+      "省卷",
+      "重庆",
+      "2022"
+    ],
+    "difficulty": 1,
+    "answer": "5",
+    "steps": [
+      "抛物线定义：两距离相等"
+    ],
+    "knowledgePoints": [
+      "抛物线定义"
+    ],
+    "lifeApplications": [
+      "反光镜"
+    ],
+    "historyNote": "定义法是解析几何第一原则。",
+    "animationSpec": {
+      "kind": "parabolaFocus"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·重庆",
+      "year": 2022,
+      "province": "重庆",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-ah-solid",
+    "title": "安徽模拟·球体积",
+    "stem": "球体表面积36π，体积____。",
+    "type": "填空题",
+    "tags": [
+      "立体几何",
+      "球体",
+      "模拟卷",
+      "省卷",
+      "安徽",
+      "2023"
+    ],
+    "difficulty": 1,
+    "answer": "36π",
+    "steps": [
+      "4πr²=36π⇒r=3",
+      "V=4/3π·27=36π"
+    ],
+    "knowledgePoints": [
+      "球面积与体积"
+    ],
+    "lifeApplications": [
+      "球形容器"
+    ],
+    "historyNote": "球体公式源于阿基米德。",
+    "animationSpec": {
+      "kind": "sphere"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·安徽",
+      "year": 2023,
+      "province": "安徽",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-fj-lim",
+    "title": "福建模拟·极限",
+    "stem": "lim_{x→0}(sin3x)/x=____。",
+    "type": "填空题",
+    "tags": [
+      "函数",
+      "极限",
+      "三角函数",
+      "模拟卷",
+      "省卷",
+      "福建",
+      "2024"
+    ],
+    "difficulty": 1,
+    "answer": "3",
+    "steps": [
+      "=3·(sin3x)/(3x)→3"
+    ],
+    "knowledgePoints": [
+      "重要极限"
+    ],
+    "lifeApplications": [
+      "小角度近似"
+    ],
+    "historyNote": "极限连接初等数学与微积分。",
+    "animationSpec": {
+      "kind": "limitSinx"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·福建",
+      "year": 2024,
+      "province": "福建",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-jx-comb",
+    "title": "江西模拟·排列组合",
+    "stem": "5男3女选3人至少1女，选法____种。",
+    "type": "填空题",
+    "tags": [
+      "计数",
+      "排列组合",
+      "模拟卷",
+      "省卷",
+      "江西",
+      "2023"
+    ],
+    "difficulty": 2,
+    "answer": "46",
+    "steps": [
+      "C(8,3)−C(5,3)=56−10=46"
+    ],
+    "knowledgePoints": [
+      "组合",
+      "正难则反"
+    ],
+    "lifeApplications": [
+      "分组抽签"
+    ],
+    "historyNote": "计数原理高考必考。",
+    "animationSpec": {
+      "kind": "binomial"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·江西",
+      "year": 2023,
+      "province": "江西",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-ln-vec",
+    "title": "辽宁模拟·向量垂直",
+    "stem": "a=(1,m)，b=(m−1,2)，a⊥b，则 m=____。",
+    "type": "填空题",
+    "tags": [
+      "平面向量",
+      "垂直",
+      "模拟卷",
+      "省卷",
+      "辽宁",
+      "2024"
+    ],
+    "difficulty": 1,
+    "answer": "1/3",
+    "steps": [
+      "(m−1)+2m=0⇒m=1/3"
+    ],
+    "knowledgePoints": [
+      "数量积为0"
+    ],
+    "lifeApplications": [
+      "正交分解"
+    ],
+    "historyNote": "垂直条件是向量基础。",
+    "animationSpec": {
+      "kind": "line"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·辽宁",
+      "year": 2024,
+      "province": "辽宁",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-gx-log",
+    "title": "广西模拟·换底",
+    "stem": "log₄9·log₃2=____。",
+    "type": "填空题",
+    "tags": [
+      "对数",
+      "换底公式",
+      "模拟卷",
+      "省卷",
+      "广西",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "1",
+    "steps": [
+      "换底后约分得1"
+    ],
+    "knowledgePoints": [
+      "换底公式"
+    ],
+    "lifeApplications": [
+      "信息量换算"
+    ],
+    "historyNote": "换底体现对数同构。",
+    "animationSpec": {
+      "kind": "functionSketch"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·广西",
+      "year": 2024,
+      "province": "广西",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-yn-ell",
+    "title": "云南模拟·焦距",
+    "stem": "椭圆 x²/25+y²/16=1 的焦距是____。",
+    "type": "填空题",
+    "tags": [
+      "椭圆",
+      "焦点",
+      "模拟卷",
+      "省卷",
+      "云南",
+      "2023"
+    ],
+    "difficulty": 1,
+    "answer": "6",
+    "steps": [
+      "c=3，焦距2c=6"
+    ],
+    "knowledgePoints": [
+      "a²=b²+c²"
+    ],
+    "lifeApplications": [
+      "椭圆镜面"
+    ],
+    "historyNote": "焦点弦是综合题入口。",
+    "animationSpec": {
+      "kind": "ellipse"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·云南",
+      "year": 2023,
+      "province": "云南",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-sx-der2",
+    "title": "陕西模拟·极值点",
+    "stem": "f(x)=x³−12x 的极小值点 x=____。",
+    "type": "填空题",
+    "tags": [
+      "导数",
+      "极值",
+      "模拟卷",
+      "省卷",
+      "陕西",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "2",
+    "steps": [
+      "f′=3x(x−2)=0，f″(2)>0"
+    ],
+    "knowledgePoints": [
+      "极值二阶判定"
+    ],
+    "lifeApplications": [
+      "优化临界点"
+    ],
+    "historyNote": "极值理论连接费马与微积分。",
+    "animationSpec": {
+      "kind": "extrema"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·陕西",
+      "year": 2024,
+      "province": "陕西",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-hlj-set",
+    "title": "黑龙江模拟·集合",
+    "stem": "A={x|x²−3x+2=0}，B={x|x²−x−2=0}，A∩B=____。",
+    "type": "填空题",
+    "tags": [
+      "集合",
+      "模拟卷",
+      "省卷",
+      "黑龙江",
+      "2023"
+    ],
+    "difficulty": 1,
+    "answer": "{2}",
+    "steps": [
+      "A={1,2}，B={−1,2}"
+    ],
+    "knowledgePoints": [
+      "集合运算"
+    ],
+    "lifeApplications": [
+      "分类筛选"
+    ],
+    "historyNote": "集合语言是现代数学基础。",
+    "animationSpec": {
+      "kind": "numberLine"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·黑龙江",
+      "year": 2023,
+      "province": "黑龙江",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-nm-prog",
+    "title": "内蒙古模拟·线性规划",
+    "stem": "z=x+y，约束 x≥0,y≥0,x+2y≤4,2x+y≤4，z最大____。",
+    "type": "填空题",
+    "tags": [
+      "线性规划",
+      "不等式",
+      "模拟卷",
+      "省卷",
+      "内蒙古",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "8/3",
+    "steps": [
+      "顶点法，交点(4/3,4/3)处 z=8/3 最大"
+    ],
+    "knowledgePoints": [
+      "线性规划顶点法"
+    ],
+    "lifeApplications": [
+      "资源分配"
+    ],
+    "historyNote": "线性规划属运筹学。",
+    "animationSpec": {
+      "kind": "line"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·内蒙古",
+      "year": 2024,
+      "province": "内蒙古",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "mock-gz-para",
+    "title": "贵州模拟·抛物线焦点",
+    "stem": "抛物线 y=2x² 的焦点坐标____。",
+    "type": "填空题",
+    "tags": [
+      "抛物线",
+      "模拟卷",
+      "省卷",
+      "贵州",
+      "2024"
+    ],
+    "difficulty": 2,
+    "answer": "(0,1/8)",
+    "steps": [
+      "x²=y/2=4ax⇒4a=1/2⇒a=1/8，焦点(0,1/8)"
+    ],
+    "knowledgePoints": [
+      "抛物线标准形"
+    ],
+    "lifeApplications": [
+      "车灯反光面"
+    ],
+    "historyNote": "抛物线光学性质应用广泛。",
+    "animationSpec": {
+      "kind": "parabolaFocus"
+    },
+    "provenance": {
+      "kind": "模拟卷",
+      "label": "模拟卷·贵州",
+      "year": 2024,
+      "province": "贵州",
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    },
+    "choices": null
+  },
+  {
+    "id": "rel-fn-05",
+    "title": "相关题型·对勾函数最值",
+    "stem": "求 f(x)=x+1/x (x≥1) 的最小值。",
+    "type": "解答题",
+    "tags": [
+      "函数",
+      "对勾函数",
+      "最值",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 2,
+    "answer": "最小值2（x=1）",
+    "choices": null,
+    "steps": [
+      "基本不等式或导数，最小值2"
+    ],
+    "knowledgePoints": [
+      "基本不等式",
+      "导数"
+    ],
+    "lifeApplications": [
+      "矩形优化"
+    ],
+    "historyNote": "对勾函数是经典图像。",
+    "animationSpec": {
+      "kind": "extrema"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-tri-05",
+    "title": "相关题型·三角恒等",
+    "stem": "化简 sin75°cos15°−cos75°sin15°。",
+    "type": "填空题",
+    "tags": [
+      "三角函数",
+      "恒等变换",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "√3/2",
+    "choices": null,
+    "steps": [
+      "=sin60°=√3/2"
+    ],
+    "knowledgePoints": [
+      "两角差正弦"
+    ],
+    "lifeApplications": [
+      "相位差"
+    ],
+    "historyNote": "三角恒等源于古典几何。",
+    "animationSpec": {
+      "kind": "wave"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-seq-05",
+    "title": "相关题型·等差中项",
+    "stem": "若1/a,1/b,1/c成等差，则（ ）。",
+    "type": "选择题",
+    "tags": [
+      "数列",
+      "等差数列",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 2,
+    "answer": "2/b=1/a+1/c",
+    "choices": [
+      "2/b=1/a+1/c",
+      "2b=a+c",
+      "b²=ac",
+      "2a=b+c"
+    ],
+    "steps": [
+      "等差中项：2/b=1/a+1/c"
+    ],
+    "knowledgePoints": [
+      "等差中项"
+    ],
+    "lifeApplications": [
+      "倒数建模"
+    ],
+    "historyNote": "与调和数列相关。",
+    "animationSpec": {
+      "kind": "numberLine"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-prob-05",
+    "title": "相关题型·互斥事件",
+    "stem": "P(A)=0.3，P(B)=0.5，A与B互斥，P(A∪B)=____。",
+    "type": "填空题",
+    "tags": [
+      "概率",
+      "互斥",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "0.8",
+    "choices": null,
+    "steps": [
+      "互斥则相加得0.8"
+    ],
+    "knowledgePoints": [
+      "互斥加法"
+    ],
+    "lifeApplications": [
+      "互斥风险合计"
+    ],
+    "historyNote": "概率公理化由柯尔莫哥洛夫完成。",
+    "animationSpec": {
+      "kind": "balls"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-anal-05",
+    "title": "相关题型·直线交点",
+    "stem": "过 x+y−1=0 与 x−y+3=0 交点且斜率2的直线方程____。",
+    "type": "填空题",
+    "tags": [
+      "解析几何",
+      "直线",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 2,
+    "answer": "2x−y+4=0",
+    "choices": null,
+    "steps": [
+      "交点(-1,2)，点斜式得2x−y+4=0"
+    ],
+    "knowledgePoints": [
+      "交点",
+      "点斜式"
+    ],
+    "lifeApplications": [
+      "导航航线"
+    ],
+    "historyNote": "解析几何由笛卡尔创立。",
+    "animationSpec": {
+      "kind": "line"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-der-05",
+    "title": "相关题型·单调区间",
+    "stem": "f(x)=x³−3x²+1 的单调递增区间____。",
+    "type": "填空题",
+    "tags": [
+      "导数",
+      "单调性",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 2,
+    "answer": "(-∞,0]∪[2,+∞)",
+    "choices": null,
+    "steps": [
+      "f′=3x(x−2)≥0 得该区间"
+    ],
+    "knowledgePoints": [
+      "导数与单调性"
+    ],
+    "lifeApplications": [
+      "趋势转折"
+    ],
+    "historyNote": "费马讨论过极值。",
+    "animationSpec": {
+      "kind": "extrema"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-solid-05",
+    "title": "相关题型·棱锥体积",
+    "stem": "底面边长2的正方形、高3的正四棱锥体积____。",
+    "type": "填空题",
+    "tags": [
+      "立体几何",
+      "棱锥",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "4",
+    "choices": null,
+    "steps": [
+      "V=1/3·4·3=4"
+    ],
+    "knowledgePoints": [
+      "棱锥体积"
+    ],
+    "lifeApplications": [
+      "堆料体积"
+    ],
+    "historyNote": "与祖暅原理相关。",
+    "animationSpec": {
+      "kind": "tetra"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-ineq-05",
+    "title": "相关题型·二次不等式",
+    "stem": "解不等式 x²−5x+6>0。",
+    "type": "填空题",
+    "tags": [
+      "不等式",
+      "二次不等式",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "x<2或x>3",
+    "choices": null,
+    "steps": [
+      "(x−2)(x−3)>0"
+    ],
+    "knowledgePoints": [
+      "二次不等式"
+    ],
+    "lifeApplications": [
+      "利润为正区间"
+    ],
+    "historyNote": "与二次方程一体。",
+    "animationSpec": {
+      "kind": "numberLine"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-comp-05",
+    "title": "相关题型·复数模",
+    "stem": "z=3−4i 的模 |z|=____。",
+    "type": "填空题",
+    "tags": [
+      "复数",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "5",
+    "choices": null,
+    "steps": [
+      "√(9+16)=5"
+    ],
+    "knowledgePoints": [
+      "复数模"
+    ],
+    "lifeApplications": [
+      "交流电类比"
+    ],
+    "historyNote": "复数经高斯完善。",
+    "animationSpec": {
+      "kind": "unitCircle"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-stat-05",
+    "title": "相关题型·平均数方差",
+    "stem": "数据1,2,3,4,5的平均数与方差____。",
+    "type": "填空题",
+    "tags": [
+      "统计",
+      "方差",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "平均3，方差2",
+    "choices": null,
+    "steps": [
+      "平均3，方差[(4+1+0+1+4)/5]=2"
+    ],
+    "knowledgePoints": [
+      "平均数",
+      "方差"
+    ],
+    "lifeApplications": [
+      "成绩波动"
+    ],
+    "historyNote": "现代统计学源于高尔顿等。",
+    "animationSpec": {
+      "kind": "seriesBars"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-fn-06",
+    "title": "相关题型·奇偶性",
+    "stem": "判断 f(x)=lg((1−x)/(1+x)) 的奇偶性。",
+    "type": "解答题",
+    "tags": [
+      "函数",
+      "奇偶性",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 2,
+    "answer": "奇函数",
+    "choices": null,
+    "steps": [
+      "定义域|x|<1对称，f(−x)=−f(x)"
+    ],
+    "knowledgePoints": [
+      "奇偶性定义"
+    ],
+    "lifeApplications": [
+      "对称信号"
+    ],
+    "historyNote": "奇偶性与傅里叶展开衔接。",
+    "animationSpec": {
+      "kind": "functionSketch"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-tri-06",
+    "title": "相关题型·二倍角",
+    "stem": "sinθ=3/5，θ∈(0,π/2)，cos2θ=____。",
+    "type": "填空题",
+    "tags": [
+      "三角函数",
+      "二倍角",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "7/25",
+    "choices": null,
+    "steps": [
+      "cosθ=4/5，cos2θ=7/25"
+    ],
+    "knowledgePoints": [
+      "二倍角公式"
+    ],
+    "lifeApplications": [
+      "倍频"
+    ],
+    "historyNote": "源于和角公式。",
+    "animationSpec": {
+      "kind": "unitCircle"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-seq-06",
+    "title": "相关题型·无穷等比",
+    "stem": "公比|q|<1的无穷等比求和公式 S=____（首项a）。",
+    "type": "填空题",
+    "tags": [
+      "数列",
+      "等比数列",
+      "无穷级数",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 2,
+    "answer": "a/(1−q)",
+    "choices": null,
+    "steps": [
+      "S=a/(1−q)"
+    ],
+    "knowledgePoints": [
+      "无穷等比求和"
+    ],
+    "lifeApplications": [
+      "永续年金"
+    ],
+    "historyNote": "极限思想进入中学数列。",
+    "animationSpec": {
+      "kind": "seriesBars"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-anal-06",
+    "title": "相关题型·两点距离",
+    "stem": "A(1,2)，B(4,6) 的距离____。",
+    "type": "填空题",
+    "tags": [
+      "解析几何",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "5",
+    "choices": null,
+    "steps": [
+      "√(3²+4²)=5"
+    ],
+    "knowledgePoints": [
+      "距离公式"
+    ],
+    "lifeApplications": [
+      "地图测距"
+    ],
+    "historyNote": "勾股定理的坐标形式。",
+    "animationSpec": {
+      "kind": "line"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
+    }
+  },
+  {
+    "id": "rel-prob-06",
+    "title": "相关题型·古典概型",
+    "stem": "掷两枚均匀骰子，点数和为7的概率____。",
+    "type": "填空题",
+    "tags": [
+      "概率",
+      "古典概型",
+      "相关题型",
+      "自编类似"
+    ],
+    "difficulty": 1,
+    "answer": "1/6",
+    "choices": null,
+    "steps": [
+      "6/36=1/6"
+    ],
+    "knowledgePoints": [
+      "古典概型"
+    ],
+    "lifeApplications": [
+      "公平游戏"
+    ],
+    "historyNote": "惠更斯等推动概率论。",
+    "animationSpec": {
+      "kind": "dice"
+    },
+    "provenance": {
+      "kind": "自编类似",
+      "label": "自编类似·相关题型",
+      "year": null,
+      "province": null,
+      "paper": "风格原创练习",
+      "note": "原创改编/模拟风格，非任何公开试卷原文，仅供学习练习"
     }
   }
 ];
